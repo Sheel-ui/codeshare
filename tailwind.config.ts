@@ -16,7 +16,8 @@ const config: Config = {
       colors: {
         cream: '#fefaf3',
         grey: '#86909c',
-        accent: '#5f5fff'
+        accent: '#5f5fff',
+        dark: '#292c33'
       },
       translate: {
         '1.25': '5px'

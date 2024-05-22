@@ -18,28 +18,29 @@ export default async function ViewCode(props: CodeProps) {
 		return notFound();
 	}
 	return (
-		<div className="flex flex-col items-center m-8 p-8">
-			<div className="w-1/3 m-8">
-				<div className="p-2 text-dark flex justify-between items-center">
-					<div>{result.title}</div>
-					<div className="text-xs mb-4">
-						<Link href={`/code/${result.id}/edit`} className="pr-6 text-green-500 hover:text-green-700">
-							<FontAwesomeIcon
-								icon={faPenToSquare}
-								className="mr-1"
-							/>
-							Edit
-						</Link>
-						<span className="pr-2 text-red-500 hover:text-red-700">
-							<FontAwesomeIcon icon={faTrash} className="mr-1" />
-							Delete
-						</span>
-					</div>
+		<div className="flex flex-col items-center">
+			<div className="flex flex-row justify-between items-center w-1/2 px-2">
+				<h1 className="capitalize">{result.title}</h1>
+				<div className="text-xs">
+					<Link
+						href={`/code/${result.id}/edit`}
+						className="pr-6 text-green-500 hover:text-green-700"
+					>
+						<FontAwesomeIcon
+							icon={faPenToSquare}
+							className="mr-1"
+						/>
+						Edit
+					</Link>
+					<span className="pr-2  text-red-500 hover:text-red-700">
+						<FontAwesomeIcon icon={faTrash} className="mr-1" />
+						Delete
+					</span>
 				</div>
-				<pre className="bg-dark text-white p-4 text-sm min-h-[300px] rounded-lg">
-					{result.code}
-				</pre>
 			</div>
+			<pre className="rounded-3xl overflow-hidden w-1/2 py-5 px-6 bg-dark m-3 h-[55vh] text-xs text-white">
+				{result.code}
+			</pre>
 		</div>
 	);
 }

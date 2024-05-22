@@ -1,27 +1,40 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faPenToSquare, faTrash } from '@/utils/iconLibrary';
+import { faPlus, faPenToSquare, faTrash } from "@/utils/iconLibrary";
 import { db } from "@/db/db";
 
 export default async function Home() {
-  const codes = await db.code.findMany();
+	const codes = await db.code.findMany();
 
-  const renderedCode = codes.map((code)=> {
-    return (
-      <div
-      key={code.id} 
-      className="p-2 text-ash border border-ash-100 rounded-lg transition duration-300
-      cursor-pointer  hover:shadow-inner w-1/3 flex justify-between items-center">
-      <div>
-        <Link href={`/code/${code.id}`}>{code.title}</Link>
-      </div>
-      <div className="text-xs">
-        <Link href={`/code/${code.id}/edit`}className="pr-6 text-green-500 hover:text-green-700"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</Link>
-        <span className="pr-2 text-red-500 hover:text-red-700"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
-      </div>
-      </div>
-    )
-  })
+	const renderedCode = codes.map((code) => {
+		return (
+			<div
+				key={code.id}
+				className="p-2 text-ash border border-ash-100 rounded-lg transition duration-300
+      cursor-pointer  hover:shadow-inner w-1/3 flex justify-between items-center"
+			>
+				<div>
+					<Link href={`/code/${code.id}`}>{code.title}</Link>
+				</div>
+				<div className="text-xs">
+					<Link
+						href={`/code/${code.id}/edit`}
+						className="pr-6 text-green-500 hover:text-green-700"
+					>
+						<FontAwesomeIcon
+							icon={faPenToSquare}
+							className="mr-1"
+						/>
+						Edit
+					</Link>
+					<span className="pr-2 text-red-500 hover:text-red-700">
+						<FontAwesomeIcon icon={faTrash} className="mr-1" />
+						Delete
+					</span>
+				</div>
+			</div>
+		);
+	});
 
 	return (
 		<div>
@@ -45,10 +58,9 @@ export default async function Home() {
 				</p>
 			</div>
 
-      
-      <div className="flex flex-col items-center gap-1 mt-12">
-        {renderedCode}
-      </div>
+			<div className="flex flex-col items-center gap-1 mt-12">
+				{renderedCode}
+			</div>
 		</div>
 	);
 }

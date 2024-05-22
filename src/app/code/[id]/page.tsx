@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { faTrash, faPenToSquare } from "@/utils/iconLibrary";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { deleteCode } from "@/actions/actions"; 
+import { deleteCode } from "@/actions/actions";
 interface CodeProps {
 	params: {
 		id: string;
@@ -19,7 +19,7 @@ export default async function ViewCode(props: CodeProps) {
 		return notFound();
 	}
 
-	const deleteCodeAction = deleteCode.bind(null,result.id);
+	const deleteCodeAction = deleteCode.bind(null, result.id);
 
 	return (
 		<div className="flex flex-col items-center">
@@ -36,9 +36,10 @@ export default async function ViewCode(props: CodeProps) {
 						/>
 						Edit
 					</Link>
-					<form 
-					action={deleteCodeAction}
-					className="pr-2 inline-block text-red-500 hover:text-red-700">
+					<form
+						action={deleteCodeAction}
+						className="pr-2 inline-block text-red-500 hover:text-red-700"
+					>
 						<button type="submit">
 							<FontAwesomeIcon icon={faTrash} className="mr-1" />
 							Delete

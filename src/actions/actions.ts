@@ -1,6 +1,7 @@
 "use server";
 
 import { db } from "@/db/db";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function editCode(id: number, code: string) {
@@ -15,6 +16,7 @@ export async function deleteCode(id: number) {
 	await db.code.delete({
 		where: { id },
 	});
+    revalidatePath("/");
 	redirect("/");
 }
 
@@ -54,6 +56,6 @@ export async function createCode(
 			};
 		}
 	}
-
+    revalidatePath("/");
 	redirect("/");
 }

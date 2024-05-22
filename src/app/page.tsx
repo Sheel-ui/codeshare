@@ -8,18 +8,18 @@ export default async function Home() {
 
   const renderedCode = codes.map((code)=> {
     return (
-      <Link href={`/code/${code.id}`}
+      <div
       key={code.id} 
       className="p-2 text-ash border border-ash-100 rounded-lg transition duration-300
       cursor-pointer  hover:shadow-inner w-1/3 flex justify-between items-center">
       <div>
-        {code.title}
+        <Link href={`/code/${code.id}`}>{code.title}</Link>
       </div>
       <div className="text-xs">
         <Link href={`/code/${code.id}/edit`}className="pr-6 text-green-500 hover:text-green-700"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</Link>
         <span className="pr-2 text-red-500 hover:text-red-700"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
       </div>
-      </Link>
+      </div>
     )
   })
 

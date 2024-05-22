@@ -17,7 +17,7 @@ const config: Config = {
         cream: '#fefaf3',
         ash: '#86909c',
         accent: '#5f5fff',
-        dark: '#292c33'
+        dark: '#1e1e1e'
       },
       translate: {
         '1.25': '5px'

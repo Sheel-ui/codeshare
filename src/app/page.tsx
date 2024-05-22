@@ -1,13 +1,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { config } from "@fortawesome/fontawesome-svg-core";
+import { faPlus, faPenToSquare, faTrash } from '@/utils/iconLibrary';
 import { db } from "@/db/db";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-
-config.autoAddCss = false;
 
 export default async function Home() {
   const codes = await db.code.findMany();

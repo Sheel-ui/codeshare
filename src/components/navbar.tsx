@@ -1,12 +1,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faShareFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+import { faPlus, faShareFromSquare, faLink } from "@/utils/iconLibrary";
 
-config.autoAddCss = false;
 
 export default function NavBar() {
 	return (
@@ -19,7 +14,8 @@ export default function NavBar() {
 				</button>
 				<Link
 					href="/code/new"
-					className="border border-[2px] font-bold px-4 py-1 border-solid border-accent text-accent rounded-full flex items-center"
+					className="border border-[2px] font-bold px-4 py-1 border-solid border-accent text-accent rounded-full flex items-center
+					hover:text-white hover:bg-accent transition duration-300 ease-in-out"
 				>
 					<FontAwesomeIcon icon={faPlus} className="mr-2" />
 					New File

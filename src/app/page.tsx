@@ -16,10 +16,10 @@ export default async function Home() {
         {code.title}
       </div>
       <div className="text-xs">
-        <span className="pr-6 text-green-500 hover:text-green-700"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
+        <Link href={`/code/${code.id}/edit`}className="pr-6 text-green-500 hover:text-green-700"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</Link>
         <span className="pr-2 text-red-500 hover:text-red-700"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
       </div>
-    </Link>
+      </Link>
     )
   })
 

@@ -4,11 +4,31 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { db } from "@/db/db";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 config.autoAddCss = false;
 
-export default function Home() {
+export default async function Home() {
+  const codes = await db.code.findMany();
+
+  const renderedCode = codes.map((code)=> {
+    return (
+      <Link href={`/code/$(code.id)`}
+      key={code.id} 
+      className="p-2 text-grey border border-grey-100 rounded-lg transition duration-300
+      cursor-pointer  hover:shadow-inner w-1/3 flex justify-between items-center">
+      <div>
+        {code.title} {code.id}
+      </div>
+      <div className="text-xs">
+        <span className="pr-6 text-green-400"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
+        <span className="pr-2 text-red-400"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
+      </div>
+    </Link>
+    )
+  })
+
 	return (
 		<div>
 			<div className="flex flex-col items-center pt-16">
@@ -30,52 +50,10 @@ export default function Home() {
 					No sign up. Free. Forever ❤️
 				</p>
 			</div>
+
+      
       <div className="flex flex-col items-center gap-1 mt-12">
-        <div className="p-2 text-grey border border-grey-100 rounded-lg w-1/3 flex justify-between items-center">
-          <div>
-            item1
-          </div>
-          <div className="text-xs">
-            <span className="pr-6 text-green-400"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
-            <span className="pr-2 text-red-400"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
-          </div>
-        </div>
-        <div className="p-2 text-grey border border-grey-100 rounded-lg w-1/3 flex justify-between items-center">
-          <div>
-            item1
-          </div>
-          <div className="text-xs">
-            <span className="pr-6 text-green-400"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
-            <span className="pr-2 text-red-400"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
-          </div>
-        </div>
-        <div className="p-2 text-grey border border-grey-100 rounded-lg w-1/3 flex justify-between items-center">
-          <div>
-            item1
-          </div>
-          <div className="text-xs">
-            <span className="pr-6 text-green-400"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
-            <span className="pr-2 text-red-400"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
-          </div>
-        </div>
-        <div className="p-2 text-grey border border-grey-100 rounded-lg w-1/3 flex justify-between items-center">
-          <div>
-            item1
-          </div>
-          <div className="text-xs">
-            <span className="pr-6 text-green-400"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
-            <span className="pr-2 text-red-400"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
-          </div>
-        </div>
-        <div className="p-2 text-grey border border-grey-100 rounded-lg w-1/3 flex justify-between items-center">
-          <div>
-            item1
-          </div>
-          <div className="text-xs">
-            <span className="pr-6 text-green-400"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
-            <span className="pr-2 text-red-400"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
-          </div>
-        </div>
+        {renderedCode}
       </div>
 		</div>
 	);

@@ -6,7 +6,7 @@ import { faPlus, faShareFromSquare, faLink } from "@/utils/iconLibrary";
 export default function NavBar() {
 	return (
 		<div className="flex flex-row justify-between items-center">
-			<div className="m-4 text-xl font-bold text-accent"> <FontAwesomeIcon icon={faLink} className="mx-2"/>codeshare</div>
+			<Link href='/' className="m-4 text-xl font-bold text-accent"> <FontAwesomeIcon icon={faLink} className="mx-2"/>codeshare</Link>
 			<div className="flex text-dark flex-row gap-8 m-4">
 				<button>
 					<FontAwesomeIcon icon={faShareFromSquare} className="mr-2" />

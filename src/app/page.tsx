@@ -8,16 +8,16 @@ export default async function Home() {
 
   const renderedCode = codes.map((code)=> {
     return (
-      <Link href={`/code/$(code.id)`}
+      <Link href={`/code/${code.id}`}
       key={code.id} 
-      className="p-2 text-grey border border-grey-100 rounded-lg transition duration-300
+      className="p-2 text-ash border border-ash-100 rounded-lg transition duration-300
       cursor-pointer  hover:shadow-inner w-1/3 flex justify-between items-center">
       <div>
-        {code.title} {code.id}
+        {code.title}
       </div>
       <div className="text-xs">
-        <span className="pr-6 text-green-400"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
-        <span className="pr-2 text-red-400"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
+        <span className="pr-6 text-green-500 hover:text-green-700"><FontAwesomeIcon icon={faPenToSquare} className="mr-1" />Edit</span>
+        <span className="pr-2 text-red-500 hover:text-red-700"><FontAwesomeIcon icon={faTrash} className="mr-1" />Delete</span>
       </div>
     </Link>
     )
@@ -29,7 +29,7 @@ export default async function Home() {
 				<h1 className="font-bold text-5xl mb-2">
 					Share Code with developers⚡️
 				</h1>
-				<p className="text-grey text-lg w-1/2 text-center m-4">
+				<p className="text-ash text-lg w-1/2 text-center m-4">
 					Codefile is a collaborative online code editor for technical
 					interviews, pair programming, teaching... you name it.
 				</p>
@@ -40,7 +40,7 @@ export default async function Home() {
 					<FontAwesomeIcon icon={faPlus} className="mr-2" />
 					New File
 				</Link>
-				<p className="mt-2 text-grey text-sm">
+				<p className="mt-2 text-ash text-sm">
 					No sign up. Free. Forever ❤️
 				</p>
 			</div>

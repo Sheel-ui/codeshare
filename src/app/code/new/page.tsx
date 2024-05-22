@@ -27,14 +27,14 @@ export default function NewCode() {
         type="text"
         name="title"
         id="title"
-        className="border border-grey rounded-md p-2 border-opacity-50 text-sm" />
+        className="border border-ash rounded-md p-2 border-opacity-50 text-sm" />
       </div>
       <div className="text-md flex flex-col w-1/3">
       <label htmlFor="code" className="mb-1">Code</label>
       <textarea 
         name="code"
         id="code"
-        className="h-[300px] text-sm border border-grey rounded-md  p-2 border-opacity-50"></textarea>
+        className="h-[300px] text-sm border border-ash rounded-md  p-2 border-opacity-50"></textarea>
       </div>
       <button 
         type="submit"

@@ -2,7 +2,7 @@
 import type { Code } from "@prisma/client";
 import { useState } from "react";
 import { Editor } from "@monaco-editor/react";
-import { editCode } from "@/actions/actions";
+import { editCode, deleteCode } from "@/actions/actions";
 import { faTrash } from "@/utils/iconLibrary"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -19,15 +19,20 @@ export default function Edit({code}: CodeProps) {
     }
 
     const editCodeActions = editCode.bind(null,code.id,text);
+    const deleteCodeAction = deleteCode.bind(null,code.id);
 
     return (
         <div className="flex flex-col items-center">
             <div className="flex flex-row justify-between items-center w-1/2 px-2">
                 <h1 className="capitalize">{code.title}</h1>
-                <span className="pr-2 text-xs text-red-500 hover:text-red-700">
-                    <FontAwesomeIcon icon={faTrash} className="mr-1" />
-                    Delete
-                </span>
+                <form 
+					action={deleteCodeAction}
+					className="pr-2 text-xs inline-block text-red-500 hover:text-red-700">
+						<button type="submit">
+							<FontAwesomeIcon icon={faTrash} className="mr-1" />
+							Delete
+						</button>
+				</form>
             </div>
             <div className="rounded-3xl overflow-hidden w-1/2 py-5 bg-dark m-3">
                 <Editor

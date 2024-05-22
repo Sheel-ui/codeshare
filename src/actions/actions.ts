@@ -10,3 +10,10 @@ export async function editCode(id:number,code:string){
     })
     redirect(`/code/${id}`);
 }
+
+export async function deleteCode(id:number){
+    await db.code.delete({
+        where: {id}
+    })
+    redirect('/');
+}
